@@ -1,28 +1,94 @@
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #ffffff;
+    --card-bg: #1a1a1a;
+    --navbar-bg: transparent;
+    --gradient-start: #675f8d;
+    --gradient-end: #5e3bea;
+    --hover-bg: #4e4747;
+    --border-color: #444;
+    --skill-card-bg: rgba(255, 255, 255, 0.05);
+    --skill-border: rgba(255, 255, 255, 0.1);
+    --text-secondary: rgba(255, 255, 255, 0.5);
+}
+
+.light-mode {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f8f9fa;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+    --gradient-start: #5e3bea;
+    --gradient-end: #675f8d;
+    --hover-bg: #e9ecef;
+    --border-color: #dee2e6;
+    --skill-card-bg: rgba(0, 0, 0, 0.05);
+    --skill-border: rgba(0, 0, 0, 0.1);
+    --text-secondary: rgba(0, 0, 0, 0.5);
+}
+
 body {
-    background-color: #0d0d0d;
+    background-color: var(--bg-color);
     font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+}
+
+section {
+    padding-top: 5rem;
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-theme {
+    color: var(--text-color);
+}
+
+.bg-theme {
+    background: var(--card-bg);
+}
+
+#theme-toggle {
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    background: transparent;
+    transition: 0.3s;
+}
+
+#theme-toggle:hover {
+    background: var(--hover-bg);
+    border-color: var(--gradient-end);
 }
 
 html{
     scroll-behavior: smooth;
 }
 
+#home {
+    background: var(--card-bg);
+    padding-top: 0;
+}
+
 .navbar-brand {
     font-weight: bold;
     font-size: 1.3rem;
-    color: #a78bfa !important;
+    color: var(--gradient-start) !important;
     font-family: 'Poppins', sans-serif;
 }
 
+.navbar {
+    background: var(--navbar-bg) !important;
+}
+
 .nav-link {
-    color: #fff !important;
+    color: var(--text-color) !important;
     margin-right: 15px;
     transition: color 0.3s;
     font-family: 'Poppins', sans-serif;
 }
 
 .nav-link:hover {
-    color: #a78bfa !important;
+    color: var(--gradient-start) !important;
 }
 
 .btn-talk {
@@ -49,8 +115,8 @@ html{
 
 
 .btn-work{
-    background: linear-gradient(90deg, #675f8d, #5e3bea);
-    color: #fff;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
     border-radius: 10px;
     padding: 10px 20px;
     font-weight: 500;
@@ -64,19 +130,19 @@ html{
 }       
 
 .btn-cv{
-    background: #1e1e1e;
-    color: #fff;
+    background: var(--card-bg);
+    color: var(--text-color);
     border-radius: 10px;
     padding: 10px 20px;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     transition: 0.3s;
-    border: 1px solid #444;
+    border: 1px solid var(--border-color);
 }
 
 .btn-cv:hover {
-    background: #4e4747;
-    border: 1px solid #5e3bea;
+    background: var(--hover-bg);
+    border: 1px solid var(--gradient-end);
 }
 
 .social-icon {
@@ -86,17 +152,17 @@ html{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #1a1a1a; 
-  color: white;
+  background: var(--card-bg); 
+  color: var(--text-color);
   font-size: 1.5rem;
   transition: 0.3s;
   text-decoration: none;
 }
 
 .social-icon:hover {
-  background: linear-gradient(90deg, #675f8d, #5e3bea);
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
   transform: scale(1.1);
-  color: white;
+  color: var(--text-color);
 }
 
 .col-md-5.text-center {
@@ -157,13 +223,13 @@ html{
 
 .card {
   border-radius: 1.5rem;
-  background: #1a1a1a;
+  background: var(--card-bg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cards{
   border-radius: 1.5rem;
-  background: #1a1a1a;
+  background: var(--card-bg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -173,11 +239,11 @@ html{
 }
 
 .skill-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--skill-card-bg);
   border-radius: 15px;
   backdrop-filter: blur(12px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--skill-border);
 }
 
 .skill-card:hover {
@@ -398,5 +464,46 @@ html{
   .flex-sm-row {
     flex-direction: row;
   }
+}
+
+/* Loading Screen */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loading.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top: 5px solid var(--gradient-start);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading p {
+    color: var(--text-color);
+    margin-top: 20px;
+    font-size: 1.2rem;
 }
 
