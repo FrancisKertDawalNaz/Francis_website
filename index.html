@@ -617,28 +617,6 @@
         });
     </script>
 
-    <!-- <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-
-        // Check for saved theme preference or default to dark
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        if (currentTheme === 'light') {
-            body.classList.add('light-mode');
-            icon.classList.remove('bi-moon');
-            icon.classList.add('bi-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            const isLight = body.classList.contains('light-mode');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            icon.classList.toggle('bi-moon');
-            icon.classList.toggle('bi-sun');
-        });
-    </script> -->
-
     <script>
         window.addEventListener('load', () => {
             const loading = document.getElementById('loading');
@@ -647,6 +625,8 @@
             }, 1000); // Adjust delay as needed
         });
     </script>
+
+    
 
 </body>
 
