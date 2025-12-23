@@ -67,6 +67,7 @@ html{
 #home {
     background: var(--card-bg);
     padding-top: 0;
+    position: relative;
 }
 
 .navbar-brand {
@@ -505,5 +506,112 @@ html{
     color: var(--text-color);
     margin-top: 20px;
     font-size: 1.2rem;
+}
+
+/* Snowflakes Animation */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    animation: fall linear infinite;
+    user-select: none;
+}
+
+.snowflake:nth-child(1) {
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 0s;
+    font-size: 1.2rem;
+}
+
+.snowflake:nth-child(2) {
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    font-size: 1.8rem;
+}
+
+.snowflake:nth-child(3) {
+    left: 30%;
+    animation-duration: 8s;
+    animation-delay: 4s;
+    font-size: 1.4rem;
+}
+
+.snowflake:nth-child(4) {
+    left: 40%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+    font-size: 1.6rem;
+}
+
+.snowflake:nth-child(5) {
+    left: 50%;
+    animation-duration: 9s;
+    animation-delay: 3s;
+    font-size: 1.3rem;
+}
+
+.snowflake:nth-child(6) {
+    left: 60%;
+    animation-duration: 11s;
+    animation-delay: 5s;
+    font-size: 1.7rem;
+}
+
+.snowflake:nth-child(7) {
+    left: 70%;
+    animation-duration: 13s;
+    animation-delay: 0.5s;
+    font-size: 1.5rem;
+}
+
+.snowflake:nth-child(8) {
+    left: 80%;
+    animation-duration: 7s;
+    animation-delay: 2.5s;
+    font-size: 1.9rem;
+}
+
+.snowflake:nth-child(9) {
+    left: 90%;
+    animation-duration: 15s;
+    animation-delay: 1.5s;
+    font-size: 1.2rem;
+}
+
+.snowflake:nth-child(10) {
+    left: 95%;
+    animation-duration: 10s;
+    animation-delay: 4.5s;
+    font-size: 1.4rem;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ensure hero content is above snowflakes */
+#home .container {
+    position: relative;
+    z-index: 2;
 }
 
